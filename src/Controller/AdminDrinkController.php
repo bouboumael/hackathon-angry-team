@@ -33,8 +33,7 @@ class AdminDrinkController extends AbstractController
             $formDrink = array_map('trim', $_POST);
             $errors = (new ValidationForm(self::CONSTRAINT, $formDrink))->validate();
             if (empty($errors)) {
-                $accessoryManager = new BoissonManager();
-                $accessoryManager->insert($formDrink);
+                $boissonManager->insert($formDrink);
                 header('Location:/adminDrink/show');
             }
         }

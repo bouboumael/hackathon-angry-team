@@ -2,84 +2,93 @@
 
 namespace App\Controller;
 
-use App\Model\BoissonManager;
 use App\Model\MenuManager;
 use App\Model\PlatManager;
+use App\Model\BoissonManager;
+use App\Service\ValidationForm;
 
 class AdminMenuController extends AbstractController
 {
-    private const MAX_LENGTH = 255;
+    private const CONSTRAINT = [
+        'name' => [
+            'max_length' => 255,
+            'phrasing_start' => 'Le nom'
+        ],
+        'plat_id' => [
+            'filter_var' => FILTER_VALIDATE_INT,
+            'phrasing_start' => 'Le plat'
+        ],
+        'boisson_id' => [
+            'filter_var' => FILTER_VALIDATE_INT,
+            'phrasing_start' => 'La boisson'
+        ],
+    ];
 
-    public function index(): string
+    public function show()
     {
-
+        $errors = [];
+        $formMenu = [];
         $menuManager = new MenuManager();
-        /*$menus = $menuManager->selectAll();*/
-        $menus = $menuManager->selectAllContent();
-        return $this->twig->render('Admin/showMenu.html.twig', [
-            "menus" => $menus,
-            ]);
-    }
-
-    private function isEmpty($menu): array
-    {
-        $errors = [];
-        if (empty($menu['name'])) {
-            $errors[] = 'Le nom est obligatoire';
-        }
-        if (empty($menu['plat_id'])) {
-            $errors[] = 'La plat est obligatoire';
-        }
-        if (empty($menu['boisson_id'])) {
-            $errors[] = 'La boisson est obligatoire';
-        }
-        return $errors;
-    }
-
-    private function validate($menu)
-    {
-        $errors = $this->isEmpty($menu);
-
-        if (strlen($menu['name']) > self::MAX_LENGTH) {
-            $errors[] = 'Le nom doit contenir moins de ' . self::MAX_LENGTH . 'caractères';
-        }
-        if (!filter_var($menu['plat_id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE)) {
-            $errors[] = 'Le plat doit etre dans la liste';
-        }
-        if (!filter_var($menu['boisson_id'], FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE)) {
-            $errors[] = 'La boisson doit etre dans la liste';
-        }
-        return $errors;
-    }
-    public function add()
-    {
-        $platManager = new PlatManager();
-        $platLists = $platManager->selectAll();
         $boissonManager = new BoissonManager();
-        $boissonLists = $boissonManager->selectAll();
-        $errors = [];
-        $menu = array_map('trim', $_POST);
-
+        $platManager = new PlatManager();
+        $platLists = $platManager->selectAll('name');
+        $boissonLists = $boissonManager->selectAll('name');
+        $menus = $menuManager->selectAllContent();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $menu = array_map('trim', $_POST);
-            // Verification
-
-            $errors = $this->validate($menu);
-
-            // no errors, send to db
+            $formMenu = array_map('trim', $_POST);
+            $errors = (new ValidationForm(self::CONSTRAINT, $formMenu))->validate();
             if (empty($errors)) {
-                $productsManager = new MenuManager();
-                $productsManager->insert($menu);
-                header('Location:/adminMenu/add');
+                $menuManager->insert($formMenu);
+                header('Location:/adminMenu/show');
             }
         }
-
         return $this->twig->render('Admin/add.html.twig', [
+            'menu' => $formMenu,
             'errors' => $errors,
-            'menu' => $menu,
             'platLists' => $platLists,
             'boissonLists' => $boissonLists,
+            'items' => $menus,
+            'url_controller' => '/adminMenu',
+            'button_name' => 'Enregister'
         ]);
+    }
+
+    public function edit(int $id): string
+    {
+        $errors = [];
+        $menuManager = new MenuManager();
+        $boissonManager = new BoissonManager();
+        $platManager = new PlatManager();
+        $formMenu = $menuManager->selectOneById($id);
+        $platLists = $platManager->selectAll('name');
+        $boissonLists = $boissonManager->selectAll('name');
+        $menus = $menuManager->selectAllContent();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $formMenu = array_map('trim', $_POST);
+            $errors = (new ValidationForm(self::CONSTRAINT, $formMenu))->validate();
+            if (empty($errors)) {
+                $formMenu['id'] = $id;
+                $menuManager->update($formMenu);
+                header('Location:/adminMenu/show');
+            }
+        }
+        return $this->twig->render('Admin/add.html.twig', [
+            'menu' => $formMenu,
+            'errors' => $errors,
+            'platLists' => $platLists,
+            'boissonLists' => $boissonLists,
+            'items' => $menus,
+            'url_controller' => '/adminMenu',
+            'button_name' => 'Editer'
+        ]);
+    }
+
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $menuManager = new MenuManager();
+            $menuManager->delete($id);
+            header('Location:/adminMenu/show');
+        }
     }
 }
