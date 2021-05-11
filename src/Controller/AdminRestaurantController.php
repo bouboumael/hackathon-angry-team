@@ -28,6 +28,10 @@ class AdminRestaurantController extends AbstractController
             $errors[] = 'la location doit faire moin de ' . self::MAX_LENGHT . ' caractères.';
         }
 
+        if (empty($data['description'])) {
+            $errors[] = 'La description est obligatoire';
+        }
+
         return $errors;
     }
 
@@ -70,7 +74,7 @@ class AdminRestaurantController extends AbstractController
                 move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/uploads/' .  $fileName);
 
                 $restaurantManager->insert($data);
-                header('Location:/AdminRestaurant/index');
+                header('Location:/AdminRestaurant/add');
             }
         }
         return $this->twig->render('/Admin/addRestaurant.html.twig', ['errors' => $errors, 'data' =>  $data]);
