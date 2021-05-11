@@ -4,7 +4,7 @@
 
 	<div class="container">
 
-		<form action="" method="POST" enctype="multipart/form-data">
+		<form action="" method="POST" enctype="multipart/form-data" novalidate>
 
 			<div class="mb-3">
 				<label for="exampleFormControlInput1" class="form-label">Nom du plat :</label>
@@ -42,12 +42,13 @@
 			<!-- End display errors -->
 
 			<div class="col-12 d-flex justify-content-end mb-2">
-				<button class="btn btn-primary" type="submit">{{ buttonName|default('Envoyé') }}</button>
+				<button class="btn btn-primary" type="submit">{{ button_name|default('Envoyé') }}</button>
 			</div>
 
 		</form>
 
 	</div>
 
+	{% include "Include/_admin_show.html.twig" %}
 
 {% endblock %}

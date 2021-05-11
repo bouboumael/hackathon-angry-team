@@ -4,7 +4,7 @@
             <th scope="col">Nom</th>
             <th scope="col">Image</th>
             {% if items.0.recipe %}
-                <th scope="col">Recette</th>
+                <th scope="col">Ingrédients</th>
             {% endif %}
             <th scope="col">Prix</th>
             <th scope="col"></th>
@@ -18,7 +18,7 @@
                 {% if item.recipe %}
                     <td>{{ item.recipe }}</td>
                 {% endif %}
-                <td>{{ item.price }}</td>
+                <td>{{ item.price }}€</td>
                 <td>
                     <a class="btn btn-secondary col-6" href="{{ url_controller }}/edit/{{ item.id }}" role="button">Editer</a>
                     <form action="{{ url_controller }}/delete/{{item.id}}" method="POST" onsubmit="return confirm('Voulez-vous supprimer ?');">
