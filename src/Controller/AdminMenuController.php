@@ -10,6 +10,17 @@ class AdminMenuController extends AbstractController
 {
     private const MAX_LENGTH = 255;
 
+    public function index(): string
+    {
+
+        $menuManager = new MenuManager();
+        /*$menus = $menuManager->selectAll();*/
+        $menus = $menuManager->selectAllContent();
+        return $this->twig->render('Admin/showMenu.html.twig', [
+            "menus" => $menus,
+            ]);
+    }
+
     private function isEmpty($menu): array
     {
         $errors = [];

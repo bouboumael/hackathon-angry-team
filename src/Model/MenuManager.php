@@ -18,4 +18,13 @@ class MenuManager extends AbstractManager
 
         return $statement->execute();
     }
+
+    public function selectAllContent()
+    {
+        $query = 'SELECT m.*, b.name AS boisson_name, p.name AS plat_name FROM ' . self::TABLE . ' m JOIN '
+        . BoissonManager::TABLE . ' b ON b.id = m.boisson_id JOIN '
+        . PlatManager::TABLE . ' p on p.id = m.plat_id';
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

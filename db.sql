@@ -14,6 +14,7 @@ CREATE TABLE `restaurant` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `localisation` text NOT NULL,
+  `description` text NOT NULL,
   `image` varchar(255) NOT NULL
 );
 
