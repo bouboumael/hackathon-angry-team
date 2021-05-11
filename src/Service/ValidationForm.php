@@ -48,14 +48,15 @@ class ValidationForm
     {
         $errors = [];
         foreach ($this->dataForm as $dataKey => $dataValue) {
-            if (array_key_exists($dataKey, $this->constraint)
-            && !empty($this->dataForm[$dataKey])
-            && isset($this->constraint[$dataKey]['max_length'])
-            && strlen($dataValue) > $this->constraint[$dataKey]['max_length']) {
-                $errors[] = $this->constraint[$dataKey]['phrasing_start'] .
-                ' must be less than ' .
-                $this->constraint[$dataKey]['max_length'] .
-                ' characters';
+            if (array_key_exists($dataKey, $this->constraint)) {
+                if (!empty($this->dataForm[$dataKey]) && isset($this->constraint[$dataKey]['max_length'])) {
+                    if (strlen($dataValue) > $this->constraint[$dataKey]['max_length']) {
+                        $errors[] = $this->constraint[$dataKey]['phrasing_start'] .
+                        ' must be less than ' .
+                        $this->constraint[$dataKey]['max_length'] .
+                        ' characters';
+                    }
+                }
             }
         }
 
@@ -71,11 +72,13 @@ class ValidationForm
     {
         $errors = [];
         foreach ($this->dataForm as $dataKey => $dataValue) {
-            if (array_key_exists($dataKey, $this->constraint)
-            && !empty($this->dataForm[$dataKey])
-            && isset($this->constraint[$dataKey]['filter_var'])) {
-                if (!filter_var($dataValue, $this->constraint[$dataKey]['filter_var'])) {
-                    $errors[] = $this->constraint[$dataKey]['phrasing_start'] . ' is not in the right format.';
+            if (array_key_exists($dataKey, $this->constraint)) {
+                if (!empty($this->dataForm[$dataKey])) {
+                    if (isset($this->constraint[$dataKey]['filter_var'])) {
+                        if (!filter_var($dataValue, $this->constraint[$dataKey]['filter_var'])) {
+                            $errors[] = $this->constraint[$dataKey]['phrasing_start'] . ' is not in the right format.';
+                        }
+                    }
                 }
             }
         }
