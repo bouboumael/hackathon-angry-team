@@ -70,7 +70,7 @@ class AdminPlatController extends AbstractController
             'plat' => $plat,
             'items' => $plats,
             'url_controller' => '/adminPlat',
-            'button_name' => 'editer'
+            'button_name' => 'Editer'
         ]);
     }
 
