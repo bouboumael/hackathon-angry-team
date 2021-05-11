@@ -1,17 +1,17 @@
 CREATE TABLE `planete` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `localisation_id` int
 );
 
 CREATE TABLE `localisation` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `restaurant_id` int NOT NULL,
   `planete_id` int NOT NULL
 );
 
 CREATE TABLE `restaurant` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `localisation` text NOT NULL,
   `menu_id` INT NOT NULL,
@@ -19,14 +19,14 @@ CREATE TABLE `restaurant` (
 );
 
 CREATE TABLE `menu` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `plat_id` int NOT NULL,
   `boisson_id` int NOT NULL
 );
 
 CREATE TABLE `plat` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `recipe` varchar(255) NOT NULL,
   `price` int NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `plat` (
 );
 
 CREATE TABLE `boisson` (
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `price` int NOT NULL,
   `image` varchar(255) NOT NULL
