@@ -7,8 +7,6 @@ use App\Service\ValidationForm;
 
 class AdminPlatController extends AbstractController
 {
-    private const MAX_LENGTH = 255;
-
     private const CONSTRAINT = [
         'name' => [
             'max_length' => 255,
