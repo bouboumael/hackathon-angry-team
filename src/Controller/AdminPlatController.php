@@ -36,7 +36,7 @@ class AdminPlatController extends AbstractController
             $errors = (new ValidationForm(self::CONSTRAINT, $plat))->validate();
             if (empty($errors)) {
                 $productsManager->insert($plat);
-                header('Location:/adminMenu/show');
+                header('Location:/adminPlat/show');
             }
         }
 
