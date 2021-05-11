@@ -28,8 +28,8 @@ CREATE TABLE `boisson` (
   `image` varchar(255) NOT NULL
 );
 
-ALTER TABLE `plat` ADD FOREIGN KEY (`id`) REFERENCES `menu` (`plat_id`);
+ALTER TABLE `menu` ADD FOREIGN KEY (`plat_id`) REFERENCES `plat` (`id`);
 
-ALTER TABLE `boisson` ADD FOREIGN KEY (`id`) REFERENCES `menu` (`boisson_id`);
+ALTER TABLE `menu` ADD FOREIGN KEY (`boisson_id`) REFERENCES `boisson` (`id`);
 
-ALTER TABLE `menu` ADD FOREIGN KEY (`id`) REFERENCES `restaurant` (`menu_id`);
+ALTER TABLE `restaurant` ADD FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`);
