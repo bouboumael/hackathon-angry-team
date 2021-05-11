@@ -45,15 +45,3 @@ CREATE TABLE `liste` (
   `restaurant_id` INT NOT NULL,
   `menu_id` INT NOT NULL
 );
-
-ALTER TABLE `menu` ADD FOREIGN KEY (`plat_id`) REFERENCES `plat` (`id`);
-
-ALTER TABLE `menu` ADD FOREIGN KEY (`boisson_id`) REFERENCES `boisson` (`id`);
-
-ALTER TABLE `localisation` ADD FOREIGN KEY (`planete_id`) REFERENCES `planete` (`id`);
-
-ALTER TABLE `localisation` ADD FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`);
-
-ALTER TABLE `liste` ADD FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`);
-
-ALTER TABLE `liste` ADD FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`id`);
