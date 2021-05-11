@@ -12,19 +12,19 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label">ingrédient :</label>
+				<label for="exampleFormControlTextarea1" class="form-label">Ingrédient :</label>
 				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description du produit" rows="3" value="" name="recipe" required>
 					{{- plat.recipe -}}
 				</textarea>
 			</div>
 
 			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">prix :</label>
+				<label for="exampleFormControlInput1" class="form-label">Prix :</label>
 				<input type="number" class="form-control" id="exampleFormControlInput1" placeholder="35" value="{{ plat.price }}" name="price" required>
 			</div>
 
 			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">image</label>
+				<label for="exampleFormControlInput1" class="form-label">Image :</label>
 				<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="URL image" value=" {{ plat.image | raw }}" name="image" required>
 			</div>
 
