@@ -1,0 +1,46 @@
+.navbar {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+}
+
+.collapse {
+    width: 66%;
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    color: #AF3E12;
+}
+
+.nav-link {
+    transition: all 0.6s ease-out;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    color: #ffffff;
+}
+
+.nav-link:hover {
+    color: #AF3E12;
+}
+
+.navbar-toggler {
+    color: white;
+    display: flex;
+    justify-content: start;
+}
+
+.nav-link {
+    text-align: center;
+}
