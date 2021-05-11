@@ -19,4 +19,18 @@ class PlatManager extends AbstractManager
 
         return $statement->execute();
     }
+
+
+    public function update(array $plat): void
+    {
+        $query = "UPDATE " . self::TABLE .
+            " SET name=:name, price=:price, image=:image, recipe=:recipe WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('name', $plat['name'], \PDO::PARAM_STR);
+        $statement->bindValue('price', $plat['price'], \PDO::PARAM_INT);
+        $statement->bindValue('image', $plat['image'], \PDO::PARAM_STR);
+        $statement->bindValue('recipe', $plat['recipe'], \PDO::PARAM_STR);
+        $statement->bindValue('id', $plat['id'], \PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
