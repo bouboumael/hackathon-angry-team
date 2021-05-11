@@ -1,0 +1,53 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<div class="container">
+
+		<form action="" method="POST" enctype="multipart/form-data">
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Nom du plat :</label>
+				<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Boulon de 32 sauce Ipone" value="" name="name" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">ingrédient :</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description du produit" rows="3" value="" name="recipe" required>
+					{{- product.description -}}
+				</textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">prix :</label>
+				<input type="number" class="form-control" id="exampleFormControlInput1" placeholder="35" value="" name="price" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">image</label>
+				<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="URL image" value="" name="image" required>
+			</div>
+
+
+			<!-- Display errors -->
+
+			{% if errors is empty  %}
+				{% else %}
+					<ul class="error">
+						{% for error in errors %}
+							<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+			{% endif %}
+			<!-- End display errors -->
+
+			<div class="col-12 d-flex justify-content-end mb-2">
+				<button class="btn btn-primary" type="submit">{{ buttonName|default('Envoyé') }}</button>
+			</div>
+
+		</form>
+
+	</div>
+
+
+{% endblock %}
