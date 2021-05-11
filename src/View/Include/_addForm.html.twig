@@ -1,0 +1,41 @@
+<div class="container">
+
+	<form action="" method="POST" enctype="multipart/form-data">
+
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Nom du menu :</label>
+			<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Boulon de 32 sauce Ipone" value="" name="name" required>
+		</div>
+
+		<select class="mb-3" value="" name="plat_id" id="plat_id" required>
+			{% for platList in platLists %}
+				<option name="plat_id" value="{{ platList.id }}" id="plat_id">{{ platList.name }}</option>
+			{% endfor %}
+		</select>
+
+		<select class="mb-3" value="" name="boisson_id" id="boisson_id" required>
+			{% for boissonList in boissonLists %}
+				<option name="{{ boissonList.id }}" value="{{ boissonList.id }}" id="{{ boissonlist.id }}">{{ boissonList.name }}</option>
+			{% endfor %}
+		</select>
+
+
+		<!-- Display errors -->
+
+		{% if errors is empty  %}
+			{% else %}
+				<ul class="error">
+					{% for error in errors %}
+						<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+		{% endif %}
+		<!-- End display errors -->
+
+		<div class="col-12 d-flex justify-content-end mb-2">
+			<button class="btn btn-primary" type="submit">{{ buttonName|default('Envoyé') }}</button>
+		</div>
+
+	</form>
+
+</div>
