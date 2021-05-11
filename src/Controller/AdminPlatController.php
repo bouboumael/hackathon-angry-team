@@ -25,10 +25,10 @@ class AdminPlatController extends AbstractController
         ]
     ];
 
-    public function add()
+    public function show()
     {
         $errors = [];
-        $plat = array_map('trim', $_POST);
+        $plat = [];
         $productsManager = new PlatManager();
         $plats = $productsManager->selectAll('id', 'DESC');
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,7 +36,7 @@ class AdminPlatController extends AbstractController
             $errors = (new ValidationForm(self::CONSTRAINT, $plat))->validate();
             if (empty($errors)) {
                 $productsManager->insert($plat);
-                header('Location:/adminMenu/add');
+                header('Location:/adminMenu/show');
             }
         }
 
@@ -47,5 +47,39 @@ class AdminPlatController extends AbstractController
             'url_controller' => '/adminPlat',
             'button_name' => 'Enregister'
         ]);
+    }
+
+
+    public function edit(int $id): string
+    {
+        $errors = [];
+        $productsManager = new PlatManager();
+        $plat = $productsManager->selectOneById($id);
+        $plats = $productsManager->selectAll('id', 'DESC');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $plat = array_map('trim', $_POST);
+            $errors = (new ValidationForm(self::CONSTRAINT, $plat))->validate();
+            if (empty($errors)) {
+                $plat['id'] = $id;
+                $productsManager->update($plat);
+                header('Location:/adminPlat/show');
+            }
+        }
+        return $this->twig->render('Admin/addPlat.html.twig', [
+            'errors' => $errors,
+            'plat' => $plat,
+            'items' => $plats,
+            'url_controller' => '/adminPlat',
+            'button_name' => 'editer'
+        ]);
+    }
+
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $boissonManager = new PlatManager();
+            $boissonManager->delete($id);
+            header('Location:/adminPlat/show');
+        }
     }
 }
