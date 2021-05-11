@@ -27,5 +27,4 @@ class MenuManager extends AbstractManager
 
         return $this->pdo->query($query)->fetchAll();
     }
-
 }
