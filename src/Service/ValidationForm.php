@@ -32,7 +32,7 @@ class ValidationForm
         $errors = [];
         foreach ($this->constraint as $inputName => $constraint) {
             if (empty($this->dataForm[$inputName])) {
-                $errors[] = $constraint['phrasing_start'] . ' must be defined.';
+                $errors[] = $constraint['phrasing_start'] . ' ne doit pas être vide.';
             }
         }
 
@@ -52,9 +52,9 @@ class ValidationForm
                 if (!empty($this->dataForm[$dataKey]) && isset($this->constraint[$dataKey]['max_length'])) {
                     if (strlen($dataValue) > $this->constraint[$dataKey]['max_length']) {
                         $errors[] = $this->constraint[$dataKey]['phrasing_start'] .
-                        ' must be less than ' .
+                        ' ne doit pas dépasser ' .
                         $this->constraint[$dataKey]['max_length'] .
-                        ' characters';
+                        ' charactères';
                     }
                 }
             }
@@ -76,7 +76,7 @@ class ValidationForm
                 if (!empty($this->dataForm[$dataKey])) {
                     if (isset($this->constraint[$dataKey]['filter_var'])) {
                         if (!filter_var($dataValue, $this->constraint[$dataKey]['filter_var'])) {
-                            $errors[] = $this->constraint[$dataKey]['phrasing_start'] . ' is not in the right format.';
+                            $errors[] = $this->constraint[$dataKey]['phrasing_start'] . ' n\'est pas au bno format.';
                         }
                     }
                 }

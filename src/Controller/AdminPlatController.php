@@ -3,54 +3,40 @@
 namespace App\Controller;
 
 use App\Model\PlatManager;
+use App\Service\ValidationForm;
 
 class AdminPlatController extends AbstractController
 {
     private const MAX_LENGTH = 255;
 
-    private function isEmpty($plat): array
-    {
-        $errors = [];
-        if (empty($plat['name'])) {
-            $errors[] = 'Le nom est obligatoire';
-        }
-        if (empty($plat['recipe'])) {
-            $errors[] = 'La recette est obligatoire';
-        }
-        if (empty($plat['price'])) {
-            $errors[] = 'Le prix est obligatoire';
-        }
-        if (empty($plat['image'])) {
-            $errors[] = 'L\'image est obligatoire';
-        }
-        return $errors;
-    }
-
-    private function validate($plat)
-    {
-        $errors = $this->isEmpty($plat);
-
-        if (strlen($plat['name']) > self::MAX_LENGTH) {
-            $errors[] = 'Le nom doit contenir moins de ' . self::MAX_LENGTH . 'caractères';
-        }
-        return $errors;
-    }
+    private const CONSTRAINT = [
+        'name' => [
+            'max_length' => 255,
+            'phrasing_start' => 'Le nom'
+        ],
+        'price' => [
+            'filter_var' => FILTER_VALIDATE_INT,
+            'phrasing_start' => 'Le prix'
+        ],
+        'image' => [
+            'filter_var' => FILTER_VALIDATE_URL,
+            'phrasing_start' => 'L\'image'
+        ],
+        'recipe' => [
+            'phrasing_start' => 'La recette'
+        ]
+    ];
 
     public function add()
     {
         $errors = [];
         $plat = array_map('trim', $_POST);
-
+        $productsManager = new PlatManager();
+        $plats = $productsManager->selectAll('id', 'DESC');
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
             $plat = array_map('trim', $_POST);
-            // Verification
-
-            $errors = $this->validate($plat);
-
-            // no errors, send to db
+            $errors = (new ValidationForm(self::CONSTRAINT, $plat))->validate();
             if (empty($errors)) {
-                $productsManager = new PlatManager();
                 $productsManager->insert($plat);
                 header('Location:/adminMenu/add');
             }
@@ -59,6 +45,9 @@ class AdminPlatController extends AbstractController
         return $this->twig->render('Admin/addPlat.html.twig', [
             'errors' => $errors,
             'plat' => $plat,
+            'items' => $plats,
+            'url_controller' => '/adminPlat',
+            'button_name' => 'Enregister'
         ]);
     }
 }
