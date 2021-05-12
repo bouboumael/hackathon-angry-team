@@ -48,7 +48,7 @@ class CartController extends AbstractController
                 unset($_SESSION['cart'][$id]);
             }
         }
-        header('Location: /Restaurant/index/1');
+        header('Location: /Cart/index');
     }
 
     public function delete($id)
