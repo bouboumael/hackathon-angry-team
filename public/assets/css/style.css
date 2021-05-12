@@ -4,3 +4,7 @@
     font-family: "AlphaCentauri";
     src: url("/assets/fonts/Alphacentauri-MVY4p.ttf");
 }
+
+.img-show-admin{
+    width: 30%;
+}
