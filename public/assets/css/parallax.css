@@ -300,10 +300,6 @@ body {
   position: absolute;
 }
 
-.slide-detail{
-  height: 100vh;
-}
-
 @media screen and (max-width: 414px) {
   .home .text {
     z-index: 101;
