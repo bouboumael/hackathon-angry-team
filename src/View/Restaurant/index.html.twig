@@ -14,18 +14,20 @@
                             {{ restaurant.menu_name | upper }}
                         </h2>
                         <img class="img-menu" src="{{ restaurant.plat_image }}" alt="{{ restaurant.plat_name }}"/>
-                        <div class="card-body p-1 d-flex col-12 justify-content-between flex-raw">
-                            <p class="col-6 text-center">
-                                Plat: <br>
+                        <div class="card-body p-1 d-flex col-12 justify-content-between flex-wrap">
+                            <p class="col-6 text-center mb-0 mt-1">
+                                Plat:
+                                <br>
                                 {{ restaurant.plat_name }}
                             </p>
-                            <p class="col-6 text-center">
-                                Boisson: <br>
+                            <p class="col-6 text-center mb-0 mt-1">
+                                Boisson:
+                                <br>
                                 {{ restaurant.boisson_name }}
                             </p>
+                            <p class="col-12 text-center">Prix:
+                                {{ restaurant.price }}€</p>
                         </div>
-                        <p class="col-12 text-center">Prix:
-                            {{ restaurant.price }}€</p>
                     </div>
                 {% endfor %}
             </div>
