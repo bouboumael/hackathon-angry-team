@@ -1,0 +1,67 @@
+.navbar {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.collapse {
+    width: 66%;
+}
+
+.burgermenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.6s ease-out;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: "AlphaCentauri";
+    letter-spacing: 10px;
+    color: #dfd9d9;
+
+}
+
+a:hover {
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 255, 255),
+    0 0 80px rgb(255, 255, 255),
+    0 0 90px rgb(255, 255, 255),
+    0 0 100px rgb(255, 255, 255),
+    0 0 150px rgb(255, 255, 255);
+    color: #fff;
+}
+
+.nav-link:hover {
+    text-shadow: 0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 255, 255),
+    0 0 80px rgb(255, 255, 255),
+    0 0 90px rgb(255, 255, 255),
+    0 0 100px rgb(255, 255, 255),
+    0 0 150px rgb(255, 255, 255);
+}
+
+.navbar-toggler {
+    color: white;
+    display: flex;
+    justify-content: start;
+    font-family: "AlphaCentauri";
+}
+
+button span {
+    font-family: "AlphaCentauri";
+}
