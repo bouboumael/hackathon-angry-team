@@ -1,20 +1,39 @@
 {% extends "layout.html.twig" %}
 {% block content %}
-    <div class="container">
-		<div class="row d-flex justify-content-center">
-			<h1 class="rounded"> {{ restaurantName.name }} </h1>
-            
-			{% for restaurant in restaurants %}
-            
-				<div class="card" style="width: 18rem;">
-                <h2> {{ restaurant.menu_name }} </h2>
-					 <img src="{{ restaurant.restaurant_image }}" alt="{{ restaurant.restaurant_name }}" style="width: 16rem;"/> 
-					<div class="card-body">
-						<h3 class="card-text"> {{ restaurant.plat_name }} </h3>
-                        <h3> {{ restaurant.boisson_name }} </h3>
+    <div class="show-resto">
+        <div class="container">
+            <header>
+                <img class="banner" src="{{ image }}" alt="{{ restaurantName.name }}">
+                <h1>{{ restaurantName.name }}</h1>
+                <img class="logo" src="{{ restaurants.0.restaurant_image }}" alt="{{ restaurants.0.restaurant_name }}"/>
+            </header>
+            <div class="row d-flex justify-content-center mt-3">
+                {% for restaurant in restaurants %}
+                    <div class="card col-3">
+                        <h2 class="mt-1 text-center">
+                            {{ restaurant.menu_name | upper }}
+                        </h2>
+                        <img class="img-menu" src="{{ restaurant.plat_image }}" alt="{{ restaurant.plat_name }}"/>
+                        <div class="card-body p-1 d-flex col-12 justify-content-between flex-wrap">
+                            <p class="col-6 text-center mb-0 mt-1">
+                                Plat:
+                                <br>
+                                {{ restaurant.plat_name }}
+                            </p>
+                            <p class="col-6 text-center mb-0 mt-1">
+                                Boisson:
+                                <br>
+                                {{ restaurant.boisson_name }}
+                            </p>
+                            <p class="col-12 text-center">Prix:
+                                {{ restaurant.price }}€</p>
+                        </div>
+                        <div class="text-center">
+						<a class="btn btn-primary text-center border-0" href="/Cart/add/">Commander</a>
 					</div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
