@@ -304,7 +304,7 @@ body {
 .slide-detail h5, .slide-detail a{
   color: rgb(66, 66, 66);
   text-decoration: none;
-  font-family: AlphaCentauri;
+  font-family: "AlphaCentauri";
 }
 
 .slide-detail h5:hover, .slide-detail a:hover{
