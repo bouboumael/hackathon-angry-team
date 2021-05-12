@@ -15,7 +15,6 @@ class CartController extends AbstractController
         $menuManager = new MenuManager();
 
         $price = $menuManager->selectAllContent();
-        var_dump($products);
         return $this->twig->render('Cart/index.html.twig', [
             'products' => $products,
             'prices' => $price,
@@ -49,8 +48,9 @@ class CartController extends AbstractController
                 unset($_SESSION['cart'][$id]);
             }
         }
-        header('Location: /Cart/index');
+        header('Location: /Restaurant/index/1');
     }
+
     public function delete($id)
     {
         unset($_SESSION['cart'][$id]);
