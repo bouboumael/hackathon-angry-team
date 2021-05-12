@@ -21,7 +21,8 @@ CREATE TABLE `menu` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `plat_id` int NOT NULL,
-  `boisson_id` int NOT NULL
+  `boisson_id` int NOT NULL,
+  `price` int NOT NULL
 );
 
 CREATE TABLE `plat` (
