@@ -8,6 +8,9 @@ class DeliveryController extends AbstractController
 {
     public function index()
     {
-        return $this->twig->render("Delivery/index.html.twig");
+        $products = $_SESSION['cart'] ?? [];
+        return $this->twig->render("Delivery/index.html.twig", [
+            'products' => $products,
+        ]);
     }
 }

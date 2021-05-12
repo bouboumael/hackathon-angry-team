@@ -291,3 +291,14 @@
         transform: rotate(-40deg);
    }
 }
+
+.easter{
+    color:rgba(0, 0, 0, 0);
+    opacity: 100%;
+}
+
+.easter:hover{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0);
+    opacity: 0%;
+}
