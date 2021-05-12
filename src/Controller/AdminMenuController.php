@@ -22,6 +22,10 @@ class AdminMenuController extends AbstractController
             'filter_var' => FILTER_VALIDATE_INT,
             'phrasing_start' => 'La boisson'
         ],
+        'price' => [
+            'filter_var' => FILTER_VALIDATE_INT,
+            'phrasing_start' => 'Le prix'
+        ],
     ];
 
     public function show()
