@@ -1,8 +1,8 @@
 /* common styles !!!YOU DON'T NEED THEM */
 body {
-    font-family: 'Overpass', sans-serif;
+    font-family: "AlphaCentauri";
     font-size: 16px;
-    color: #1c1c1c;
+    color: #000000;
 }
 h1 {
     margin: 0;
@@ -12,40 +12,9 @@ h1 {
 h1 span {
     font-family: 'The Girl Next Door', cursive;
     font-weight: 700;
-    color: #4caf50;
-}
-.submenu {
-    display: flex;
-    justify-content: center;
-    margin: 10px auto 0;
-}
-.submenu__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.submenu__item:not(:last-child) {
-    margin-right: 30px;
-}
-.submenu__item a {
-    transition-property: all;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
-    transition-delay: 0s;
-    display: inline-flex;
-    align-items: center;
-    font-size: 17px;
-    color: inherit;
-    text-decoration: none;
+    color: #ffffff;
 }
 
-.submenu__item a:hover {
-    color: #4caf50;
-}
-.submenu__item a i {
-    color: #4caf50;
-    margin-right: 5px;
-}
 h2 {
     margin-top: 40px;
     text-decoration: underline;
@@ -60,11 +29,17 @@ h2 {
     width: 300px;
     padding: 30px;
     box-sizing: border-box;
-    background-color: #1c1c1c;
+    background-color: #000000;
     box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.14), 1px 0 10px 0 rgba(0, 0, 0, 0.12), 2px 0 4px -1px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     z-index: 500;
+}
+
+.nav a {
+    color: white;
+    font-family: "AlphaCentauri";
+    padding: 30px;
 }
 /* nav list styles */
 .nav__list {
@@ -89,7 +64,15 @@ h2 {
     text-decoration: none;
 }
 .nav__link:hover {
-    color: #4caf50;
+    text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(255, 255, 255),
+    0 0 80px rgb(255, 255, 255),
+    0 0 90px rgb(255, 255, 255),
+    0 0 100px rgb(255, 255, 255),
+    0 0 150px rgb(255, 255, 255);
 }
 /* nav link icon styles */
 .nav__link-icon {
