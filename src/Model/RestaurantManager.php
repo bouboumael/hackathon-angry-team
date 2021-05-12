@@ -26,12 +26,19 @@ class RestaurantManager extends AbstractManager
         restaurant.image AS restaurant_image,
         menu.name AS menu_name,
         menu.boisson_id AS boisson_id,
-        menu.plat_id AS plat_id
+        menu.plat_id AS plat_id,
+        boisson.name as boisson_name,
+        plat.name AS plat_name
         FROM liste 
         JOIN restaurant 
         ON restaurant.id = liste.restaurant_id 
         JOIN menu 
-        ON menu.id = liste.menu_id WHERE restaurant.id = :id;');
+        ON menu.id = liste.menu_id 
+        JOIN boisson
+        ON boisson.id = menu.boisson_id
+        JOIN plat
+        ON plat.id = menu.plat_id
+        WHERE restaurant.id = :id;');
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
@@ -56,5 +63,19 @@ class RestaurantManager extends AbstractManager
         ON restaurant.id = localisation.restaurant_id
         JOIN planete
         ON planete.id = localisation.planete_id ORDER BY planete.name;')->fetchAll();
+    }
+
+    public function selectWithDrink()
+    {
+        $statement = $this->pdo->query('SELECT boisson.name
+        from liste
+        JOIN menu
+        ON menu.id = liste.menu_id
+        JOIN boisson
+        ON boisson.id = menu.boisson_id;');
+
+        $statement->execute();
+
+        return $statement->fetch();
     }
 }
