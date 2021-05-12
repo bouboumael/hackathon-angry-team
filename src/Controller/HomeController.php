@@ -24,7 +24,7 @@ class HomeController extends AbstractController
     public function index()
     {
         $restaurants = (new RestaurantManager())->selectRestaurantByPlanets();
-        $restaurantsOrder=[];
+        $restaurantsOrder = [];
         foreach ($restaurants as $restaurant) {
             $restaurantsOrder[$restaurant['planete_name']][] = $restaurant;
         }
