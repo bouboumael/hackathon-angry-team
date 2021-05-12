@@ -51,6 +51,13 @@ body {
   filter: brightness(0.6);
 }
 
+.home h3 {
+  color: white;
+  font-family: "AlphaCentauri";
+  text-align: center;
+  margin: 20px;
+}
+
 .home .rock1 {
   position: absolute !important;
   left: 10vw !important;
@@ -144,7 +151,7 @@ body {
   height: 5vh;
   color: #fff;
   position: absolute;
-  top: 40px;
+  top: 70px;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -215,7 +222,7 @@ body {
 
 .slide-number {
   position: absolute;
-  left: 30%;
+  left: 36%;
   width: 200px;
   height: 120px;
   overflow: hidden;
@@ -276,7 +283,7 @@ body {
 .slide-text {
   font-family: "AlphaCentauri";
   position: absolute;
-  left: 22%;
+  left: 28%;
   z-index: 9;
   width: 550px;
   height: 400px;
@@ -286,7 +293,7 @@ body {
 
 .slide-text h4 {
   color: #fff;
-  font-size: 100px;
+  font-size: 75px;
   position: relative;
 }
 .slide-text h4 span {
@@ -300,7 +307,8 @@ body {
 
   .home .text h1{
     top: 40vh;
-    left: 31.5vw;
+    left: 24.5vw;
+    font-size: 35px;
   }
 
   .home .earth img {
@@ -323,10 +331,27 @@ body {
 
   .home .slide-number {
     padding: 20px;
+    top: 3.5%;
+  }
+
+  .home .slide-number p span {
+    font-size: 25px;
   }
 
   .home .bg img {
     width: 190vw;
   }
 
+  .home .planet-links {
+    display: none;
+  }
+
+  .swiper-container {
+    top: 25%;
+  }
+
+  .swiper-slide{
+    display: flex;
+    flex-direction: column;
+  }
 }
