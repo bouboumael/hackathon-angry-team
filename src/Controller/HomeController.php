@@ -9,6 +9,8 @@
 
 namespace App\Controller;
 
+use App\Model\RestaurantManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -21,6 +23,14 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $restaurants = (new RestaurantManager())->selectRestaurantByPlanets();
+        $restaurantsOrder=[];
+        foreach ($restaurants as $restaurant) {
+            $restaurantsOrder[$restaurant['planete_name']][] = $restaurant;
+        }
+
+        return $this->twig->render('Home/index.html.twig', [
+            'restaurants' => $restaurantsOrder,
+        ]);
     }
 }

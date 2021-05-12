@@ -1,7 +1,6 @@
 CREATE TABLE `planete` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `localisation_id` int
+  `name` varchar(255) NOT NULL
 );
 
 CREATE TABLE `localisation` (

@@ -40,10 +40,13 @@
         </section>
 
         <section id="sectiontwo" class="screen">
-            <div><h3>ChoIsIssez votre planete</h3></div>
+            <div>
+                <h3>ChoIsIssez votre planete</h3>
+            </div>
             <div class="planet-links"></div>
             <div class="swiper-container">
-                <div class="swiper-wrapper">
+                <div
+                    class="swiper-wrapper">
                     <!-- SLIDE ONE -->
                     <div class="swiper-slide">
                         <div class="slide-number">
@@ -57,7 +60,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.mercury %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -75,7 +87,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.venus %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -92,8 +113,17 @@
                                 <span>Earth</span>
                             </h4>
                         </div>
-                        <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                        <div class="slide-detail d-flex col-12 flex-wrap">
+                            {% for restaurant in restaurants.earth %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -111,7 +141,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.mars %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -129,7 +168,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.jupiter %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -148,7 +196,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.saturn %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -167,7 +224,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.uranus %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
@@ -186,7 +252,16 @@
                             </h4>
                         </div>
                         <div class="slide-detail">
-                            {% for restaurant in restaurants %}{% endfor %}
+                            {% for restaurant in restaurants.neptune %}
+                                <a href="/restaurant/index/{{ restaurant.id }}" class="ms-1">
+                                    <div class="card" style="width: 8rem;">
+                                        <img src="{{ restaurant.image }}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-text">{{ restaurant.name }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
                         </div>
                         <div class="slide-img"></div>
                     </div>
