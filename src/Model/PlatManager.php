@@ -9,7 +9,7 @@ class PlatManager extends AbstractManager
     public function insert(array $menu)
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-        " (name, recipe, price, image) 
+            " (name, recipe, price, image) 
         VALUES (:name, :recipe, :price, :image)");
 
         $statement->bindValue('name', $menu['name'], \PDO::PARAM_STR);
