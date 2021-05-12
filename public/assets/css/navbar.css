@@ -1,28 +1,28 @@
-.navbar {
+.romain .navbar {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-color: black;
 }
 
-.collapse {
+.romain .collapse {
     width: 66%;
 }
 
-.navbar-nav {
+.romain .navbar-nav {
     width: 100%;
 }
 
-a {
+.romain a {
     text-decoration: none;
     color: #ffffff;
 }
 
-a:hover {
+.romain a:hover {
     color: #AF3E12;
 }
 
-.nav-link {
+.romain .nav-link {
     transition: all 0.6s ease-out;
     text-align: center;
     font-size: 25px;
@@ -31,16 +31,16 @@ a:hover {
     color: #ffffff;
 }
 
-.nav-link:hover {
+.romain .nav-link:hover {
     color: #AF3E12;
 }
 
-.navbar-toggler {
+.romain .navbar-toggler {
     color: white;
     display: flex;
     justify-content: start;
 }
 
-.nav-link {
+.romain .nav-link {
     text-align: center;
 }
