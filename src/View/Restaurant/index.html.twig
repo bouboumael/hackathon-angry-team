@@ -2,16 +2,16 @@
 {% block content %}
     <div class="container">
 		<div class="row d-flex justify-content-center">
-			<h1 class="rounded">Liste des restaurants disponibles sur cette planete </h1>
+			<h1 class="rounded"> {{ restaurantName.name }} </h1>
             
 			{% for restaurant in restaurants %}
             
 				<div class="card" style="width: 18rem;">
-                <h2> {{ restaurant.restaurant_name }} </h2>
+                <h2> {{ restaurant.menu_name }} </h2>
 					 <img src="{{ restaurant.restaurant_image }}" alt="{{ restaurant.restaurant_name }}" style="width: 16rem;"/> 
 					<div class="card-body">
-						<p class="card-text">{{ restaurant.restaurant_description }}</p>
-                        <h3> {{ restaurant.menu_name }} </h3>
+						<h3 class="card-text"> {{restaurant.plat_id}}</h3>
+                        <h3> {{restaurant.boisson_id}} </h3>
 					</div>
 				</div>
 			{% endfor %}
