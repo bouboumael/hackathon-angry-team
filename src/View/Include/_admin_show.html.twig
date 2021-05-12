@@ -36,9 +36,9 @@
                 {% endif %}
                 <td>{{ item.menu_price }}{{ item.price }}€</td>
                 <td>
-                    <a class="btn btn-secondary col-6" href="{{ url_controller }}/edit/{{ item.id }}" role="button">Editer</a>
+                    <a class="btn btn-secondary btn-sm col-12" href="{{ url_controller }}/edit/{{ item.id }}" role="button">Editer</a>
                     <form action="{{ url_controller }}/delete/{{item.id}}" method="POST" onsubmit="return confirm('Voulez-vous supprimer ?');">
-                        <button class="btn btn-danger col-6">Supprimer</button>
+                        <button class="btn btn-danger btn-sm col-12">Supprimer</button>
                     </form>
                 </td>
             </tr>
