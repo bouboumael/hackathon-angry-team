@@ -23,7 +23,7 @@
             <tr>
                 <td>{{ item.name }}</td>
                 {% if item.image %}
-                    <td><img src="{{ item.image }}" alt="{{ item.name }}"></td>
+                    <td class="img-show-admin"><img src="{{ item.image }}" alt="{{ item.name }}" class="img-show-admin"></td>
                 {% endif %}
                 {% if item.recipe %}
                     <td>{{ item.recipe }}</td>
@@ -34,7 +34,7 @@
                 {% if item.boisson_id %}
                     <td>{{ item.boisson_name }}</td>
                 {% endif %}
-                <td>{{ item.menu_price }}€</td>
+                <td>{{ item.menu_price }}{{ item.price }}€</td>
                 <td>
                     <a class="btn btn-secondary col-6" href="{{ url_controller }}/edit/{{ item.id }}" role="button">Editer</a>
                     <form action="{{ url_controller }}/delete/{{item.id}}" method="POST" onsubmit="return confirm('Voulez-vous supprimer ?');">

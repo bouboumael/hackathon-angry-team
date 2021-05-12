@@ -10,8 +10,8 @@
                 <h2> {{ restaurant.menu_name }} </h2>
 					 <img src="{{ restaurant.restaurant_image }}" alt="{{ restaurant.restaurant_name }}" style="width: 16rem;"/> 
 					<div class="card-body">
-						<h3 class="card-text"> {{restaurant.plat_id}}</h3>
-                        <h3> {{restaurant.boisson_id}} </h3>
+						<h3 class="card-text"> {{ restaurant.plat_name }} </h3>
+                        <h3> {{ restaurant.boisson_name }} </h3>
 					</div>
 				</div>
 			{% endfor %}
