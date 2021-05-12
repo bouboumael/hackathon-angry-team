@@ -63,3 +63,44 @@ INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Burger boulon", 3, 2);
 INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Le casse brique", 2, 2);
 INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Le Wall-E-Bird", 3, 1);
 INSERT INTO menu (name, plat_id, boisson_id) VALUES (".....", 4, 4);
+
+INSERT INTO planete (name) VALUES
+('mercury'),
+('venus'),
+('earth'),
+('mars'),
+('jupiter'),
+('saturn'),
+('urnaus'),
+('neptune')
+;
+
+INSERT INTO restaurant (name, localisation, description,	image
+) VALUES
+('Ingenuity', 'Cratère jezero', 'Arrivé 2020', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ingenuity_Helicopter_Rotor_Blades_Unlocked_GifCam.gif/220px-Ingenuity_Helicopter_Rotor_Blades_Unlocked_GifCam.gif'),
+('Curiosity', 'Cratère Gale', 'Arrivé en 2012', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Curiosity_Mars_Science_Laboratory_Rover.jpg/220px-Curiosity_Mars_Science_Laboratory_Rover.jpg')
+;
+
+INSERT INTO localisation (restaurant_id, planete_id) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 8)
+;
+
+INSERT INTO liste (restaurant_id, menu_id) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(2, 8)
+;
