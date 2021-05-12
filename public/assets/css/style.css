@@ -1,4 +1,5 @@
 @import "parallax.css";
+@import "show.css";
 
 @font-face {
     font-family: "AlphaCentauri";
@@ -7,4 +8,9 @@
 
 .img-show-admin{
     width: 30%;
+}
+
+.img-menu{
+    object-fit: cover;
+    width: 100%;
 }

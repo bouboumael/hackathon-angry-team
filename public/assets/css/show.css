@@ -1,0 +1,28 @@
+.show-resto header{
+    position: relative;
+    height: 200px;
+}
+
+.banner{
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.show-resto header h1{
+    position: absolute;
+    z-index: 1;
+    color: orangered;
+    left: 2%;
+}
+
+.show-resto header .logo{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    height: 100%;
+    filter: grayscale();
+}
