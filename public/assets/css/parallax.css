@@ -139,11 +139,12 @@ section {
 }
 
 .planet-links {
+  font-family: "AlphaCentauri";
   width: 95%;
   height: 5vh;
   color: #fff;
   position: absolute;
-  bottom: 0;
+  top: 40px;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -180,7 +181,7 @@ section {
 }
 
 .swiper-slide:nth-child(1) .slide-img {
-  background-image: url("/assets/images/mercury.png");
+  background-image: url("/assets/images/mars.png");
 }
 .swiper-slide:nth-child(2) .slide-img {
   background-image: url("/assets/images/venus.png");
@@ -292,4 +293,42 @@ section {
 }
 .slide-text h4 span {
   position: absolute;
+}
+
+@media screen and (max-width: 414px) {
+  .text {
+    z-index: 101;
+  }
+  
+  .text h1{
+    top: 40vh;
+    left: 31.5vw;
+  }
+
+  .earth img {
+    left: 0;
+    top: 20vh;
+  }
+
+  nav {
+    padding: 8px;
+    justify-content: space-around;
+  }
+
+  .slide-text{
+    display: none;
+  }
+
+  .rockbg1 {
+    display: none;
+  }
+
+  .slide-number {
+    padding: 20px;
+  }
+
+  .bg img {
+    width: 190vw;
+  }
+  
 }
