@@ -1,0 +1,27 @@
+{% extends 'Admin/layout.html.twig' %}
+
+{% block content %}
+	<div class="container">
+		<div class="row d-flex justify-content-center">
+			<h1 class="rounded">CARTE DES MENUS</h1>
+			{% for menu in menus %}
+				<div class="card" style="width: 18rem;">
+					<img src="https://placekitten.com/200/300" class="card-img-top" alt="{{ menu.name }}">
+					<div class="card-body">
+						<h2 class="card-text">{{ menu.name }}</h2>
+						<table>
+							<tr>
+								<th>Plat</th>
+								<th>Boisson</th>
+							</tr>
+							<tr>
+								<td>{{ menu.plat_name }}</td>
+								<td>{{ menu.boisson_name }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

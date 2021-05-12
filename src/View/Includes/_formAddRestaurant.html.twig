@@ -1,0 +1,26 @@
+<div class="container">
+	<form method="POST" enctype="multipart/form-data">
+		<ul>
+			{% for error in errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
+		<div class="mb-3">
+			<label for="name" class="form-label">Nom du restaurant :</label>
+			<input type="text" class="form-control" id="name" name="name" value="{{ data.name }}" placeholder="Rover restaurant" required>
+		</div>
+		<div class="mb-3">
+			<label for="localisation" class="form-label">Localisation du restaurant :</label>
+			<input type="text" class="form-control" id="localisation" name="localisation" value="{{ data.location }}" placeholder="" required>
+		</div>
+		<div class="mb-3">
+			<label for="image" class="form-label">Image du restaurant :</label>
+			<input type="file" class="form-control" name="image" id="image" required>
+		</div>
+		<div class="mb-3">
+			<label for="description" class="form-label">Description :</label>
+			<textarea class="form-control" name="description" id="description" placeholder="Super resto !" required>{{- data.description -}}</textarea
+		</div>
+		<button>Ajouter</button>
+	</form>
+</div>

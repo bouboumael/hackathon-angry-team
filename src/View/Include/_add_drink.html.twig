@@ -1,0 +1,26 @@
+<div class="container">
+    <ul class="error">
+        {% if errors %}
+            {% for error in errors %}
+                <li>
+                    {{ error }}
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom de la boisson</label>
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp" value="{{ formDrink.name }}">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix</label>
+            <input type="number" class="form-control" name="price" id="price" value="{{ formDrink.price }}">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="url" class="form-control" name="image" id="image" value="{{ formDrink.image | raw }}">
+        </div>
+        <button type="submit" class="btn btn-primary">{{ button_name }}</button>
+    </form>
+</div>

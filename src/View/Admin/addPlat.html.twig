@@ -1,0 +1,55 @@
+{% extends 'Admin/layout.html.twig' %}
+
+{% block content %}
+
+	<h1>Administartion Plats:</h1>
+	<div class="container">
+
+		<form action="" method="POST" enctype="multipart/form-data" novalidate>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Nom du plat :</label>
+				<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Boulon de 32 sauce Ipone" value="{{ plat.name }}" name="name" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlTextarea1" class="form-label">Ingrédient :</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description du produit" rows="3" value="" name="recipe" required>
+					{{- plat.recipe -}}
+				</textarea>
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Prix :</label>
+				<input type="number" class="form-control" id="exampleFormControlInput1" placeholder="35" value="{{ plat.price }}" name="price" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Image :</label>
+				<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="URL image" value=" {{ plat.image | raw }}" name="image" required>
+			</div>
+
+
+			<!-- Display errors -->
+
+			{% if errors is empty  %}
+				{% else %}
+					<ul class="error">
+						{% for error in errors %}
+							<li>{{ error }}</li>
+						{% endfor %}
+					</ul>
+			{% endif %}
+			<!-- End display errors -->
+
+			<div class="col-12 d-flex justify-content-end mb-2">
+				<button class="btn btn-primary" type="submit">{{ button_name|default('Envoyé') }}</button>
+			</div>
+
+		</form>
+
+	</div>
+
+	{% include "Include/_admin_show.html.twig" %}
+
+{% endblock %}

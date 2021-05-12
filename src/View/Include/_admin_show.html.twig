@@ -1,0 +1,47 @@
+<table class="table table-striped table-hover text-center align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            {% if items.0.image %}
+                <th scope="col">Image</th>
+            {% endif %}
+            {% if items.0.recipe %}
+                <th scope="col">Ingrédients</th>
+            {% endif %}
+            {% if items.0.plat_id %}
+                <th>Plat</th>
+            {% endif %}
+            {% if items.0.boisson_id %}
+                <th>Boisson</th>
+            {% endif %}
+            <th scope="col">Prix</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                {% if item.image %}
+                    <td><img src="{{ item.image }}" alt="{{ item.name }}"></td>
+                {% endif %}
+                {% if item.recipe %}
+                    <td>{{ item.recipe }}</td>
+                {% endif %}
+                {% if item.plat_id %}
+                    <td>{{ item.plat_name }}</td>
+                {% endif %}
+                {% if item.boisson_id %}
+                    <td>{{ item.boisson_name }}</td>
+                {% endif %}
+                <td>{{ item.menu_price }}€</td>
+                <td>
+                    <a class="btn btn-secondary col-6" href="{{ url_controller }}/edit/{{ item.id }}" role="button">Editer</a>
+                    <form action="{{ url_controller }}/delete/{{item.id}}" method="POST" onsubmit="return confirm('Voulez-vous supprimer ?');">
+                        <button class="btn btn-danger col-6">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
