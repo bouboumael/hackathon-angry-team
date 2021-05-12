@@ -1,0 +1,23 @@
+<div class="container">
+    <form method='post'>
+	<div class="mb-3">
+
+		<label for="restaurant_id" class="form-label">Choisissez votre restaurant</label>
+		<select name="restaurant_id" id="restaurant_id">
+        {% for restaurant in restaurants %}
+            <option value="{{restaurant.id}}">{{ restaurant.name }}</option>
+        {% endfor %}
+        </select>
+	</div>
+
+    <div class="mb-3">
+		<label for="menu" class="form-label">Choisissez votre menu</label>
+		<select name="menu_id" id="menu_id">
+        {% for menu in menus %}
+            <option value="{{menu.id}}">{{ menu.name }}</option>
+        {% endfor %}
+        </select>
+	</div>
+    <button>Ajouter</button>
+    </form>
+</div>
