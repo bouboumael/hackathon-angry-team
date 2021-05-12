@@ -1,1 +1,6 @@
 @import "parallax.css";
+
+@font-face {
+    font-family: "AlphaCentauri";
+    src: url("/assets/fonts/Alphacentauri-MVY4p.ttf") format("ttf");
+}
