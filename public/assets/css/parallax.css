@@ -215,7 +215,6 @@ body {
 
 .slide-number {
   position: absolute;
-  top: -30px;
   left: 30%;
   width: 200px;
   height: 120px;
@@ -277,7 +276,6 @@ body {
 .slide-text {
   font-family: "AlphaCentauri";
   position: absolute;
-  top: -150px;
   left: 22%;
   z-index: 9;
   width: 550px;
@@ -296,39 +294,39 @@ body {
 }
 
 @media screen and (max-width: 414px) {
-  .text {
+  .home .text {
     z-index: 101;
   }
-  
-  .text h1{
+
+  .home .text h1{
     top: 40vh;
     left: 31.5vw;
   }
 
-  .earth img {
+  .home .earth img {
     left: 0;
     top: 20vh;
   }
 
-  nav {
+  .home nav {
     padding: 8px;
     justify-content: space-around;
   }
 
-  .slide-text{
+  .home .slide-text{
     display: none;
   }
 
-  .rockbg1 {
+  .home .rockbg1 {
     display: none;
   }
 
-  .slide-number {
+  .home .slide-number {
     padding: 20px;
   }
 
-  .bg img {
+  .home .bg img {
     width: 190vw;
   }
-  
+
 }
