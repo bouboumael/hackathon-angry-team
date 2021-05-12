@@ -28,7 +28,9 @@ class RestaurantManager extends AbstractManager
         menu.boisson_id AS boisson_id,
         menu.plat_id AS plat_id,
         boisson.name as boisson_name,
-        plat.name AS plat_name
+        plat.name AS plat_name,
+        plat.image AS plat_image,
+        plat.price
         FROM liste 
         JOIN restaurant 
         ON restaurant.id = liste.restaurant_id 
