@@ -72,7 +72,7 @@ INSERT INTO planete (name) VALUES
 ('mars'),
 ('jupiter'),
 ('saturn'),
-('urnaus'),
+('uranus'),
 ('neptune')
 ;
 
