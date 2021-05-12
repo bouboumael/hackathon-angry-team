@@ -20,7 +20,7 @@
     list-style: none;
 }
 
-a {
+#navbaradmin a {
     text-decoration: none;
     transition: all 0.6s ease-out;
     text-align: center;
@@ -32,7 +32,7 @@ a {
 
 }
 
-a:hover {
+#navbaradmin a:hover {
     text-shadow: 0 0 5px #fff,
     0 0 10px #fff,
     0 0 20px #fff,
