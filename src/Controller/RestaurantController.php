@@ -14,6 +14,7 @@ class RestaurantController extends AbstractController
         $boissonLists = $restaurantManager->selectWithDrink();
         $restaurants = $restaurantManager->selectByIdCategory($id);
         $restaurantName = $restaurantManager->selectNameById($id);
+        
         $image = (new NasaApi())->randImage();
         return $this->twig->render('Restaurant/index.html.twig', [
             'restaurants' => $restaurants,

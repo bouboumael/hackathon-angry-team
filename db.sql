@@ -56,14 +56,14 @@ INSERT INTO boisson (name, price, image) VALUES ("Bidon d'essence", 12, 'https:/
 INSERT INTO boisson (name, price, image) VALUES ("Bidon de liquide de refroidissement", 20, 'https://picsum.photos/seed/picsum/200/300');
 INSERT INTO boisson (name, price, image) VALUES ("Liquide non euclidien", 46, 'https://picsum.photos/seed/picsum/200/300');
 
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Le generator", 1, 2);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("L'espérance", 3, 2);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Le rover positif", 1, 3);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Nouvelle jeunesse", 3, 4);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Burger boulon", 3, 2);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Le casse brique", 2, 2);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES ("Le Wall-E-Bird", 3, 1);
-INSERT INTO menu (name, plat_id, boisson_id) VALUES (".....", 4, 4);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("Le generator", 1, 2,12);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("L'espérance", 3, 2,35);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("Le rover positif", 1, 3,11);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("Nouvelle jeunesse", 3, 4,14);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("Burger boulon", 3, 2,09);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("Le casse brique", 2, 2,30);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES ("Le Wall-E-Bird", 3, 1,05);
+INSERT INTO menu (name, plat_id, boisson_id, price) VALUES (".....", 4, 4,06);
 
 INSERT INTO planete (name) VALUES
 ('mercury'),
