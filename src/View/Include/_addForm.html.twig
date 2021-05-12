@@ -20,9 +20,14 @@
             <label for="boisson_id" class="form-label">Boisson :</label>
             <select class="form-select" name="boisson_id" id="boisson_id" required>
                 {% for boissonList in boissonLists %}
-                <option value="{{ boissonList.id }}" {% if boissonList.id == menu.boisson_id %} selected="selected" {% endif %}>{{ boissonList.name }}</option>
-            {% endfor %}
+                    <option value="{{ boissonList.id }}" {% if boissonList.id == menu.boisson_id %} selected="selected" {% endif %}>{{ boissonList.name }}</option>
+                {% endfor %}
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix :</label>
+            <input type="number" class="form-control" id="price" placeholder="30" value="{{ menu.price }}" name="price" required>
         </div>
 
         <!-- Display errors -->
