@@ -25,6 +25,7 @@ class RestaurantManager extends AbstractManager
         restaurant.description AS restaurant_description,
         restaurant.image AS restaurant_image,
         menu.name AS menu_name,
+        menu.id AS menu_id,
         menu.boisson_id AS boisson_id,
         menu.plat_id AS plat_id,
         boisson.name as boisson_name,
