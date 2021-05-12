@@ -1,22 +1,28 @@
-<div class="container">
-	<div class="mb-3">
-		<label for="lastname" class="form-label">Nom :</label>
-		<input type="text" class="form-control" id="lastname"  name="lastname" placeholder="E" value="">
+<form method="POST">
+	<div class="container">
+		<ul>
+			{% for errors in errors %}
+				<li>{{ errors }}</li>
+			{% endfor %}
+		</ul>
+		<div class="mb-3">
+			<label for="lastname" class="form-label">Nom :</label>
+			<input type="text" class="form-control" id="lastname" name="lastname" placeholder="E" value="{{ data.lastname }}" required>
+		</div>
+		<div class="mb-3">
+			<label for="firstname" class="form-label">Prénom :</label>
+			<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Wall" value="{{ data.firstname }}" required>
+		</div>
+		<div class="mb-3">
+			<label for="telephone" class="form-label">Numéro de téléphone :</label>
+			<input type="text" class="form-control" id="telephone" name="telephone" placeholder="06.09.65.54.96" value="{{ data.telephone }}" required>
+		</div>
+		<div class="mb-3">
+			<label for="message" class="form-label">Message :</label>
+			<textarea class="form-control" id="message" name="message" rows="3" placeholder="Ecrivez votre message" required>{{- data.message -}}</textarea>
+		</div>
+		<div class="col-auto mt-4 d-flex justify-content-end">
+			<button>Envoyer</button>
+		</div>
 	</div>
-    	<div class="mb-3">
-		<label for="firstname" class="form-label">Prénom :</label>
-		<input type="text" class="form-control" id="firstname"  name="firstname" placeholder="Wall" value="">
-	</div>
-	<div class="mb-3">
-		<label for="email" class="form-label">Adresse mail :</label>
-		<input type="email" class="form-control" id="email"  name="email" placeholder="wall@e.com" value="">
-	</div>
-    	<div class="mb-3">
-		<label for="telephone" class="form-label">Numéro de téléphone :</label>
-		<input type="email" class="form-control" id="telephone"  name="telephone" placeholder="06.09.65.54.96" value="">
-	</div>
-	<div class="mb-3">
-		<label for="message" class="form-label">Message :</label>
-		<textarea class="form-control" id="message"  name="message" rows="3" placeholder="Ecrivez votre message"></textarea>
-	</div>
-</div>
+</form>
