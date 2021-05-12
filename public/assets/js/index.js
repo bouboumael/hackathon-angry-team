@@ -30,10 +30,10 @@ var slider = new Swiper(".swiper-container", {
 slider.on("slideChange", function() {
   console.log("SLIDE CHANGED");
   gsap.to(".slide-text span", 0.2, {
-    x: "-100px"
+    x: "-1000px"
   });
   gsap.to(".slide-number span", 0.2, {
-    x: "-100px"
+    x: "-1000px"
   });
   gsap.to(".slide-detail span", 0.5, {
     x: "-1000px"
