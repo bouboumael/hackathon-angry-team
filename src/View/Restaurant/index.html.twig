@@ -1,20 +1,27 @@
 {% extends "layout.html.twig" %}
 {% block content %}
     <div class="container">
-		<div class="row d-flex justify-content-center">
-			<h1 class="rounded">Liste des restaurants disponibles sur cette planete </h1>
-            
-			{% for restaurant in restaurants %}
-            
-				<div class="card" style="width: 18rem;">
-                <h2> {{ restaurant.restaurant_name }} </h2>
-					 <img src="{{ restaurant.restaurant_image }}" alt="{{ restaurant.restaurant_name }}" style="width: 16rem;"/> 
-					<div class="card-body">
-						<p class="card-text">{{ restaurant.restaurant_description }}</p>
-                        <h3> {{ restaurant.menu_name }} </h3>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
+        <div class="resto">
+            <header>
+                <img src="{{ image }}" alt="mars-sol" class="col-12">
+                <h1 class="text-center">{{ restaurantName.name | capitalize }}</h1>
+                <img class="logo" src="{{ restaurants.0.restaurant_image }}" alt="{{ restaurantName.name }}"/>
+            </header>
+            <main>
+                <div class="row d-flex justify-content-center pt-5">
+                    {% for restaurant in restaurants %}
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{ restaurant.restaurant_image }}" alt="{{ restaurant.restaurant_name }}" style="width: 16rem;"/>
+                            <div class="card-body">
+                                <p class="card-text">{{ restaurant.restaurant_description }}</p>
+                                <h3>
+                                    {{ restaurant.menu_name }}
+                                </h3>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
 {% endblock %}

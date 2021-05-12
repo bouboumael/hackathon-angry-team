@@ -1,0 +1,32 @@
+.resto header{
+    position: relative;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.resto header img{
+    position: absolute;
+    z-index: 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.resto .logo{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    filter: grayscale();
+}
+
+.resto header h1{
+    position: absolute;
+    z-index: 1;
+    color: orangered;
+}
+
+.resto main{
+    background-color: gray;
+    min-height: 70vh;
+}

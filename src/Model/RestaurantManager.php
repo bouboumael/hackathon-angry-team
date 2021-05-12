@@ -47,14 +47,4 @@ class RestaurantManager extends AbstractManager
 
         return $statement->fetch();
     }
-
-    public function selectRestaurantByPlanets()
-    {
-        return $this->pdo->query('SELECT restaurant.*, planete.name AS planete_name
-        FROM localisation
-        JOIN restaurant
-        ON restaurant.id = localisation.restaurant_id
-        JOIN planete
-        ON planete.id = localisation.planete_id ORDER BY planete.name;')->fetchAll();
-    }
 }
