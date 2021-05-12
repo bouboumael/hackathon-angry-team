@@ -302,13 +302,13 @@ body {
 }
 
 .slide-detail h5, .slide-detail a{
-  color: #fff;
+  color: rgb(66, 66, 66);
   text-decoration: none;
   font-family: AlphaCentauri;
 }
 
 .slide-detail h5:hover, .slide-detail a:hover{
-  color: #0ff;
+  color: #fff;
 }
 
 @media screen and (max-width: 414px) {
